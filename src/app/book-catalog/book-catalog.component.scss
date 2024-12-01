@@ -1,0 +1,60 @@
+h2 {
+    font-family: var(--body-font-family);
+    font-weight: 400;
+    font-style: normal;
+    padding: 1.5rem 0 0 0;
+    margin: 0 1.5rem;
+  }
+  
+  .title__underline-trace {
+    width: 60px;
+    opacity: 0.5;
+    margin: 0 1.5rem;
+    border-bottom: 2px solid var(--dark--yellow--3);
+  }
+  
+  .filter {
+    display: flex;
+  
+    width: fit-content;
+    margin: 2rem 1.5rem;
+  }
+  
+  .filter label {
+    margin-right: 0.5rem;
+  }
+  
+  input {
+    all: unset;
+    display: block;
+    width: auto;
+  
+    opacity: 0.5;
+    margin: 0 0.5rem;
+    border-bottom: 2px solid var(--dark--yellow--3);
+  }
+  
+  input::placeholder {
+    color: black;
+    opacity: 0.75;
+  }
+  
+  .books {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  // Media Queries //
+  
+  @media (max-width: 425px) {
+    .filter {
+      flex-direction: column;
+      align-items: center;
+      width: auto;
+    }
+  
+    input {
+      margin-top: 0.5rem;
+    }
+  }
+  
