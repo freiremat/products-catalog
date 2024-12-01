@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "title": "Angular Core Deep Dive",
+    "imageUrl": "assets/images/img1.webp",
+    "description": "A detailed walk-through of the most important part of Angular - the Core and Common modules",
+    "category": "Terror",
+    "rating": 10,
+    "year": "2019"
+  },
+  {
+    "id": 2,
+    "title": "RxJs In Practice Course",
+    "imageUrl": "https://s3-us-west-1.amazonaws.com/angular-university/course-images/rxjs-in-practice-course.png",
+    "description": "Understand the RxJs Observable pattern, learn the RxJs Operators via practical examples",
+    "category": "Suspense",
+    "rating": 10,
+    "year": "2012"
+  },
+  {
+    "id": 3,
+    "title": "NgRx In Depth",
+    "imageUrl": "https://s3-us-west-1.amazonaws.com/angular-university/course-images/angular-ngrx-course.png",
+    "description": "Learn the modern Ngrx Ecosystem, including Store, Effects, Router Store, Ngrx Entity, Dev Tools and Schematics.",
+    "category": "Romance",
+    "rating": 10,
+    "year": "2012"
+  }
+]

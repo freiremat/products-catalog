@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import "primeicons/primeicons.css";
+
+:root {
+    --dark--yellow--3: #D1AF1E;
+    --dark--yellow--5: #f8ba00;
+  
+    --black: #000;
+    --light--black: #e2d6d6;
+    --dark-black--1: #151515;
+    --white: #fff;
+    --light--white: #f1f1f1;
+
+    --body-font-family: 'PT Sans', sans-serif;
+  }
+  
+  * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+

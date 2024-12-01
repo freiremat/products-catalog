@@ -1,10 +1,45 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { BookStockComponent } from './book/book-stock/book-stock.component';
+import { BookCatalogComponent } from './book-catalog/book-catalog.component';
+import { BookOrderComponent } from './book/book-order/book-order.component';
+import { BookDetailComponent } from './book-catalog/book-detail/book-detail.component';
+import { LoginComponent } from './login/login.component';
+import { AuthGuard } from 'src/authGuard';
 
-const routes: Routes = [];
+const appRoutes: Routes = [
+  { path: 'login', component: LoginComponent },
+  {
+    path: 'book-catalog',
+    component: BookCatalogComponent,
+    canActivate: [AuthGuard],
+    data: { roles: ['admin'] },
+    children: [
+      {
+        path: 'detail/:id',
+        component: BookDetailComponent,
+        canActivate: [AuthGuard],
+        data: { roles: ['admin'] }
+      },
+    ],
+  },
+  {
+    path: 'book-stock',
+    component: BookStockComponent,
+    canActivate: [AuthGuard],
+    data: { roles: ['admin', 'seller', 'client'] }
+  },
+  {
+    path: 'book-order',
+    component: BookOrderComponent,
+    canActivate: [AuthGuard],
+    data: { roles: ['admin', 'seller'] }
+  },
+];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(appRoutes)],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }
