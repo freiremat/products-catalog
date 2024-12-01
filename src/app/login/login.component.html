@@ -1,0 +1,39 @@
+<fieldset>
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <div>
+      <div class="signIn">
+        <label class="has-float-label">
+          <input
+            type="text"
+            placeholder="Username"
+            id="username"
+            class="form-control"
+            name="username"
+            ngModel
+            required
+          />
+          <span for="username">Username</span>
+        </label>
+
+        <label class="has-float-label">
+          <input
+            type="password"
+            placeholder="Password"
+            id="password"
+            class="form-control"
+            name="password"
+            ngModel
+            required
+          />
+          <span for="password">Password</span>
+        </label>
+      </div>
+      <p-button
+        type="submit"
+        [disabled]="!f.valid"
+        label="Sign in"
+        icon="pi pi-user"
+      />
+    </div>
+  </form>
+</fieldset>
