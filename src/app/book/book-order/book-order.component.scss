@@ -1,0 +1,100 @@
+:host ::ng-deep {
+  .p-button:last-child() {
+    padding: 0.5rem 1.25rem;
+  }
+
+  .p-ripple {
+    margin: 0.5rem 0.5rem 0 0;
+    padding: 0.25rem 1.25rem;
+  }
+}
+
+fieldset {
+  padding: 1.5rem;
+  margin: 1rem 0 0 1rem;
+  background: var(--white);
+  width: 75%;
+}
+
+input,
+select {
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+@mixin float-label-container {
+  display: block;
+  position: relative;
+}
+
+@mixin float-label {
+  label,
+  > span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    cursor: text;
+    font-size: 75%;
+    opacity: 1;
+    transition: all 0.2s;
+    @content;
+  }
+}
+
+@mixin float-label-input {
+  &::placeholder {
+    opacity: 1;
+    transition: all 0.2s;
+  }
+  &:placeholder-shown:not(:focus)::placeholder {
+    opacity: 0;
+  }
+}
+
+@mixin float-label-scaled {
+  &:placeholder-shown:not(:focus) + * {
+    font-size: 150%;
+    opacity: 0.5;
+    @content;
+  }
+}
+
+.has-float-label {
+  @include float-label-container;
+  @include float-label;
+
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+
+  input,
+  select {
+    @include float-label-input;
+    font-size: inherit;
+    padding-top: 1em;
+    margin-bottom: 2px;
+    border: 0;
+    border-radius: 0;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+
+    @include float-label-scaled {
+      top: 0.25em;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: rgba(0, 0, 0, 0.5);
+    }
+  }
+}
+
+// Media Queries //
+
+@media (max-width: 768px) {
+  fieldset {
+    width: auto;
+    margin: 1rem 0.25rem;
+  }
+}

@@ -1,0 +1,52 @@
+<fieldset>
+  <legend>Book Order</legend>
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <label class="has-float-label">
+      <input
+        type="string"
+        placeholder="Category"
+        id="category"
+        class="form-control"
+        name="category"
+        ngModel
+        required
+      />
+      <span for="category">Category</span>
+    </label>
+
+    <label class="has-float-label">
+      <input
+        type="string"
+        placeholder="Description"
+        id="description"
+        class="form-control"
+        name="description"
+        ngModel
+        required
+      />
+      <span for="description">Description</span>
+    </label>
+
+    <label class="has-float-label">
+      <input
+        type="string"
+        placeholder="Date"
+        id="date"
+        class="form-control"
+        name="date"
+        ngModel
+        required
+      />
+      <span for="date">Date</span>
+    </label>
+
+    <p-button type="submit" [disabled]="!f.valid" label="Add" size="small" />
+    <p-button
+      type="button"
+      [disabled]="!f.valid"
+      label="Clear"
+      size="small"
+      (click)="onClear()"
+    />
+  </form>
+</fieldset>
