@@ -1,0 +1,28 @@
+:host ::ng-deep {
+  .p-datatable-table,
+  .p-datatable .p-datatable-footer {
+    width: 75%;
+    margin: 1rem 0 0 1rem;
+  }
+}
+
+//Media Queries //
+
+:host ::ng-deep {
+  @media (max-width: 425px) {
+    .p-datatable-table,
+    .p-datatable .p-datatable-footer {
+      width: 100%;
+      margin: unset;
+    }
+  }
+}
+
+:host ::ng-deep {
+  @media (min-width: 426px) and (max-width: 768px) {
+    .p-datatable-table,
+    .p-datatable .p-datatable-footer {
+      width: 95%;
+    }
+  }
+}
