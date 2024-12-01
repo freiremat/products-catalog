@@ -1,0 +1,14 @@
+<div class="book-card" *ngIf="book" #container (click)="onCardClick()">
+  <book-image *ngIf="book.iconUrl" [src]="book.iconUrl"></book-image>
+
+  <div class="book-title">
+    {{ cardIndex || "" + " " + book.description }}
+  </div>
+
+  <div class="book-category">
+    <div class="category">
+      { book.category, select, Terror {Terror} Suspense {Suspense} Romance
+      {Romance} } - {{ book.date }}
+    </div>
+  </div>
+</div>
