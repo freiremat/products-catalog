@@ -1,0 +1,10 @@
+<div *ngIf="book">
+  <p><strong>Descrição:</strong> {{ book.description }}</p>
+  <p><strong>Categoria:</strong> {{ book.category }}</p>
+  <p><strong>Ano:</strong> {{ book.date }}</p>
+</div>
+<div *ngIf="!book">
+  <p>Livro não encontrado.</p>
+</div>
+
+<p>teste</p>
