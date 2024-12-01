@@ -1,35 +1,65 @@
-import { TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { ActivatedRoute } from '@angular/router';
+import { AuthService } from './services/auth.service';
+
+let activatedRouteStub: Partial<ActivatedRoute>;
 
 describe('AppComponent', () => {
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
+  let route: ActivatedRoute;
+  let authService: jasmine.SpyObj<AuthService>;
+
   beforeEach(async () => {
+    activatedRouteStub = {};
+    authService = jasmine.createSpyObj('AuthService', ['isAuthenticated']);
+
+
     await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule
       ],
-      declarations: [
-        AppComponent
+      providers: [
+        {
+          provide: AuthService,
+          useValue: { authService }
+        }
       ],
     }).compileComponents();
+
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
+    route = TestBed.get(ActivatedRoute);
   });
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+    expect(component).toBeTruthy();
   });
 
-  it(`should have as title 'products-catalog'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('products-catalog');
+  it('expect to call method onLoginSuccess', () => {
+
+    const routerSpy = spyOn(component['router'], 'navigate').and.stub();
+
+    component.onLoginSuccess();
+
+    expect(routerSpy).toHaveBeenCalledWith(['/book-catalog']);
+  })
+
+  it('should set isLoginRoute to true when the current route is /login', () => {
+    spyOnProperty(component['router'], 'url', 'get').and.returnValue('/login');
+
+    component.checkLoginRoute();
+
+    expect(component.isLoginRoute).toBeTrue();
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('products-catalog app is running!');
+  it('should set isLoginRoute to false when the current route is not /login', () => {
+    spyOnProperty(component['router'], 'url', 'get').and.returnValue('/home');
+
+    component.checkLoginRoute();
+
+    expect(component.isLoginRoute).toBeFalse();
   });
 });
