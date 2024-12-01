@@ -1,0 +1,67 @@
+<div *ngIf="book" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>Edit Book</h2>
+      <button type="button" class="close" (click)="close()">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-body__split">
+        <p><strong>Description:</strong> {{ book.description }}</p>
+        <p><strong>Categoria:</strong> {{ book.category }}</p>
+        <p><strong>Data:</strong> {{ book.date }}</p>
+        <img *ngIf="book.iconUrl" [src]="book.iconUrl" width="100" />
+      </div>
+      <div class="modal-body__split">
+        <form (ngSubmit)="onSubmit()">
+          <div>
+            <label class="has-float-label first-input">
+              <input
+                type="string"
+                placeholder="Description"
+                id="description"
+                class="form-control"
+                name="description"
+                [(ngModel)]="book.description"
+                required
+              />
+              <span for="description">Description</span>
+            </label>
+            <label class="has-float-label">
+              <input
+                type="string"
+                placeholder="Category"
+                id="category"
+                class="form-control"
+                name="category"
+                [(ngModel)]="book.category"
+                disabled
+                required
+              />
+              <span for="category">Category</span>
+            </label>
+          </div>
+          <div>
+            <label class="has-float-label">
+              <input
+                type="string"
+                placeholder="Date"
+                id="date"
+                class="form-control"
+                name="date"
+                [(ngModel)]="book.date"
+                required
+              />
+              <span for="date">Date</span>
+            </label>
+          </div>
+          <div>
+            <img *ngIf="book.iconUrl" [src]="book.iconUrl" width="100" />
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="card flex justify-content-center">
+      <p-button label="Save" (click)="close()" />
+    </div>
+  </div>
+</div>
