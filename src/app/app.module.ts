@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BookCardComponent } from './book/book-card/book-card.component';
 import { BookImageComponent } from './book/book-image/book-image.component';
 import { HeaderComponent } from './header/header.component'
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BookStockComponent } from './book/book-stock/book-stock.component';
 import { BookOrderComponent } from './book/book-order/book-order.component';
 import { BookCatalogComponent } from './book-catalog/book-catalog.component';
@@ -26,7 +26,15 @@ import { TagModule } from 'primeng/tag';
 import { RatingModule } from 'primeng/rating';
 import { DividerModule } from 'primeng/divider';
 import { InputTextModule } from 'primeng/inputtext';
+import { DialogModule } from 'primeng/dialog';
+import { FieldsetModule } from 'primeng/fieldset';
+import { CardModule } from 'primeng/card';
 import { MenuItem } from 'primeng/api';
+
+import { ToggleButtonModule } from 'primeng/togglebutton';
+import { SelectButtonModule } from 'primeng/selectbutton';
+import { OverlayPanelModule } from 'primeng/overlaypanel';
+import { AccordionModule, AccordionTab } from 'primeng/accordion';
 
 
 @NgModule({
@@ -40,13 +48,14 @@ import { MenuItem } from 'primeng/api';
     BookOrderComponent,
     BookModalComponent,
     BookDetailComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     ButtonModule,
     MenubarModule,
+    DialogModule,
     FormsModule,
     TableModule,
     TagModule,
@@ -54,7 +63,17 @@ import { MenuItem } from 'primeng/api';
     HttpClientModule,
     InputTextModule,
     DividerModule,
-    AppRoutingModule
+    FieldsetModule,
+    CardModule,
+    AppRoutingModule,
+    SelectButtonModule,
+    OverlayPanelModule,
+    ReactiveFormsModule,
+    ToggleButtonModule,
+    AccordionModule,
+    
+
+        
   ],
   providers: [BookListService, AuthService, AuthGuard],
   bootstrap: [AppComponent],
