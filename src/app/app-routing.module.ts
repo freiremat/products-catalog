@@ -8,21 +8,16 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuard } from 'src/authGuard';
 
 const appRoutes: Routes = [
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   {
     path: 'book-catalog',
     component: BookCatalogComponent,
     canActivate: [AuthGuard],
     data: { roles: ['admin'] },
-    children: [
-      {
-        path: 'detail/:id',
-        component: BookDetailComponent,
-        canActivate: [AuthGuard],
-        data: { roles: ['admin'] }
-      },
-    ],
   },
+  { path: 'book-catalog/detail/:id', component: BookDetailComponent },
+
   {
     path: 'book-stock',
     component: BookStockComponent,
