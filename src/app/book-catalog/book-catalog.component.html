@@ -1,15 +1,15 @@
 <div>
-  <h2>Catálogo de Livros</h2>
+  <h2>Book Catalog</h2>
   <div class="title__underline-trace"></div>
 </div>
 
 <div class="filter">
-  <label for="filter">Filtrar por Título, Categoria ou Ano:</label>
+  <label for="filter">Filter by Title, Category or Year:</label>
   <input
     type="text"
     id="filter"
     [(ngModel)]="filterText"
-    placeholder="Digite um dado"
+    placeholder="Enter a data"
   />
 </div>
 
@@ -19,6 +19,6 @@
     type="beginner"
     [book]="book"
     (bookClicked)="goToDetail(book.id)"
-    >
+  >
   </app-book-card>
 </div>

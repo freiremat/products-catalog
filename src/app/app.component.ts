@@ -19,7 +19,7 @@ export class AppComponent {
     });
 
     if (this.authService.isAuthenticated()) {
-      this.router.navigate(['/book-catalog']);
+      // this.router.navigate(['/book-catalog']);
     }
   }
 
