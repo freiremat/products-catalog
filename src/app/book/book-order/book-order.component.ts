@@ -17,6 +17,20 @@ export class BookOrderComponent {
   editedItem!: Book;
   value: string | undefined;
 
+  images = [
+    '/assets/images/img1.webp',
+    '/assets/images/img2.webp',
+    '/assets/images/img3.webp',
+    '/assets/images/img4.webp',
+    '/assets/images/img5.webp',
+    '/assets/images/img6.webp',
+    '/assets/images/img7.webp',
+    '/assets/images/img8.webp',
+    '/assets/images/img9.webp',
+  ];
+
+  randomImage = this.images[Math.floor(Math.random() * this.images.length)];
+
   constructor(private bkService: BookListService) { }
 
   ngOnInit() {
@@ -46,7 +60,7 @@ export class BookOrderComponent {
     const newBook = new BookClass(
       nextId,
       value.description,
-      value.iconUrl,
+      this.randomImage,
       value.longDescription,
       value.category,
       value.date
