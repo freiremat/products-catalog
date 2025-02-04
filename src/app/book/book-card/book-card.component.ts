@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Book } from '../../model/book';
+import { BookListService } from 'src/app/services/BookList.service';
 
 @Component({
   selector: 'app-book-card',
@@ -20,7 +21,13 @@ export class BookCardComponent implements OnInit {
 
   @Output() bookClicked = new EventEmitter<number>();
 
-  ngOnInit() { }
+  constructor(private bookListService: BookListService) { }
+
+  ngOnInit() {
+    this.bookListService.booksChanged.subscribe((books: Book[]) => {
+      this.book = books[this.cardIndex];
+    });
+  }
 
   onTitleChanged(newTitle: string) {
     this.book.description = newTitle;
