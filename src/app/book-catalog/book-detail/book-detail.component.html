@@ -1,10 +1,48 @@
-<div *ngIf="book">
-  <p><strong>Descrição:</strong> {{ book.description }}</p>
-  <p><strong>Categoria:</strong> {{ book.category }}</p>
-  <p><strong>Ano:</strong> {{ book.date }}</p>
-</div>
-<div *ngIf="!book">
-  <p>Livro não encontrado.</p>
-</div>
+<div class="book-card__detail" *ngIf="book" #container>
+  <img
+    *ngIf="book.iconUrl"
+    [src]="book.iconUrl"
+    alt="book Logos"
+  />
 
-<p>teste</p>
+  <!-- <p-divider layout="vertical" /> -->
+
+  <div class="book-card__info">
+    <h2>Book catalog template</h2>
+    <p>
+      Unleash your creativity: create your book catalog template today
+      perfect
+    </p>
+
+    <ul>
+      <li class="pi pi-pencil">100% customizable templates</li>
+      <li class="pi pi-images">Millions of photos, icons, tables and graphs</li>
+      <li class="pi pi-sparkles">AI-Powered Editing Features</li>
+      <li class="pi pi-download">Share, download, embed and publish effortlessly</li>
+      <li class="pi pi-qrcode">Easily generate QR codes for your projects</li>
+    </ul>
+
+    <p-divider layout="horizontal" />
+
+    <div>
+      <p-accordion [activeIndex]="0">
+        <p-accordionTab header="Book Details">
+          <div class="accordionAlign">
+            <span>Size</span>
+            <span>Letter (8.5 x 11 in) </span>
+          </div>
+          <p-divider layout="horizontal" />
+          <div class="accordionAlign">
+            <span>Format of File</span>
+            <span>PNG, PDF, PowerPoint </span>
+          </div>
+          <p-divider layout="horizontal" />
+          <div class="accordionAlign">
+            <span>Plan</span>
+            <span>Premium</span>
+          </div>
+        </p-accordionTab>
+      </p-accordion>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,140 @@
+:host ::ng-deep {
+  .p-fieldset.p-fieldset-toggleable .p-fieldset-legend a {
+    padding: 0.75rem;
+  }
+
+  .p-accordion
+    .p-accordion-header:not(.p-disabled).p-highlight
+    .p-accordion-header-link,
+  .p-accordion .p-accordion-header .p-accordion-header-link {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+  }
+}
+
+.book-card__detail {
+  display: flex;
+  justify-content: space-evenly;
+
+  background-color: var(--white);
+  border-radius: 10px;
+  padding: 20px 0;
+  box-shadow: 0 1px 16px 0 rgba(0, 0, 0, 0.2), 0 2px 8px 0 rgba(0, 0, 0, 0.14),
+    0 4px 8px -1px rgba(0, 0, 0, 0.12);
+  max-width: 1250px;
+  margin: 30px auto;
+  user-select: none;
+
+  img {
+    width: 350px;
+  }
+}
+
+.book-card__info {
+  align-self: center;
+
+  p {
+    margin: 1rem 0;
+    font-size: 18px;
+  }
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+}
+
+li {
+  padding: 0 0 0.75rem 0;
+}
+
+li:last-child {
+  padding: unset;
+}
+
+.pi:before {
+  margin-right: 0.75rem;
+}
+
+.accordionAlign {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  width: auto;
+
+  span:nth-child(1),
+  span:nth-child(3),
+  span:nth-child(5) {
+    color: #7c7474;
+  }
+}
+
+// Media Queries //
+
+@media (max-width: 425px) {
+  .book-card__detail {
+    display: flex;
+    flex-direction: column;
+    padding: 15px 20px;
+    max-width: fit-content;
+    margin: 1rem;
+
+    img {
+      width: 250px;
+    }
+  }
+
+  h2 {
+    margin-top: 1rem;
+  }
+
+  .accordionAlign {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 426px) and (max-width: 767px) {
+  .book-card__detail {
+    flex-direction: column;
+    max-width: 560px;
+
+    img {
+      width: 250px;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .book-card__detail {
+    flex-direction: column;
+
+    max-width: 730px;
+    padding: 15px 20px;
+    margin: 1rem;
+
+    img {
+      width: 285px;
+    }
+  }
+
+  .book-card__info {
+    align-self: unset;
+  }
+}
+
+@media (min-width: 1024px) {
+  .book-card__detail {
+    flex-direction: row;
+
+    max-width: 1020px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .book-card__detail {
+    max-width: 1420px;
+  }
+}
