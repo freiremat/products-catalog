@@ -1,10 +1,14 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { AuthService } from '../services/auth.service';
-import { NgForm } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-login',
+  standalone: true,
+  imports: [CommonModule, FormsModule, ButtonModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })

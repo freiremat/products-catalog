@@ -7,7 +7,7 @@ import { BookDetailComponent } from './book-catalog/book-detail/book-detail.comp
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from 'src/authGuard';
 
-const appRoutes: Routes = [
+export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   {
@@ -31,10 +31,3 @@ const appRoutes: Routes = [
     data: { roles: ['admin', 'seller'] }
   },
 ];
-
-@NgModule({
-  imports: [RouterModule.forRoot(appRoutes)],
-  exports: [RouterModule]
-})
-
-export class AppRoutingModule { }

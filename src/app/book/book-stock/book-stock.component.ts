@@ -3,9 +3,14 @@ import { Subscription } from 'rxjs';
 import { Book, BookClass } from '../../model/book';
 import { BOOKS } from 'src/app/model/db-data';
 import { BookListService } from '../../services/BookList.service';
+import { CommonModule } from '@angular/common';
+import { BookModalComponent } from '../book-modal/book-modal.component';
+import { TableModule } from 'primeng/table';
 
 @Component({
   selector: 'app-book-stock',
+  standalone: true,
+  imports: [CommonModule, BookModalComponent, TableModule],
   templateUrl: './book-stock.component.html',
   styleUrls: ['./book-stock.component.scss']
 })

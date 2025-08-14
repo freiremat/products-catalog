@@ -3,9 +3,14 @@ import { BOOKS } from 'src/app/model/db-data';
 import { Book } from '../model/book';
 import { BookListService } from '../services/BookList.service';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { BookCardComponent } from '../book/book-card/book-card.component';
 
 @Component({
   selector: 'app-book-catalog',
+  standalone: true,
+  imports: [CommonModule, FormsModule, BookCardComponent],
   templateUrl: './book-catalog.component.html',
   styleUrls: ['./book-catalog.component.scss']
 })

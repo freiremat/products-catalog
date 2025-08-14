@@ -1,9 +1,13 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Book } from '../../model/book';
 import { BookListService } from 'src/app/services/BookList.service';
+import { CommonModule } from '@angular/common';
+import { BookImageComponent } from '../book-image/book-image.component';
 
 @Component({
   selector: 'app-book-card',
+  standalone:true,
+  imports: [CommonModule, BookImageComponent],
   templateUrl: './book-card.component.html',
   styleUrls: ['./book-card.component.scss'],
 })

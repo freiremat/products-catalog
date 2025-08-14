@@ -1,10 +1,15 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AccordionModule } from 'primeng/accordion';
+import { DividerModule } from 'primeng/divider';
 import { Book } from 'src/app/model/book';
 import { BookListService } from 'src/app/services/BookList.service';
 
 @Component({
   selector: 'app-book-detail',
+  standalone: true,
+  imports: [CommonModule, DividerModule, AccordionModule],
   templateUrl: './book-detail.component.html',
   styleUrls: ['./book-detail.component.scss']
 })

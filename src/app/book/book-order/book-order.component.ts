@@ -1,11 +1,15 @@
+import { CommonModule } from '@angular/common';
 import { Component, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
+import { ButtonModule } from 'primeng/button';
 import { Subscription } from 'rxjs';
 import { Book, BookClass } from 'src/app/model/book';
 import { BookListService } from 'src/app/services/BookList.service';
 
 @Component({
   selector: 'app-book-order',
+  standalone: true,
+  imports: [CommonModule, FormsModule, ButtonModule],
   templateUrl: './book-order.component.html',
   styleUrls: ['./book-order.component.scss']
 })

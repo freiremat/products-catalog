@@ -1,9 +1,12 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-// import { MenubarModule } from 'primeng/menubar';
+import { MenubarModule } from 'primeng/menubar';
 import { MenuItem } from 'primeng/api';
 
 @Component({
   selector: 'app-header',
+  standalone: true,
+  imports: [MenubarModule, CommonModule],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
